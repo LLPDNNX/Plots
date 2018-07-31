@@ -223,9 +223,28 @@ filePath = "/vols/cms/mkomm/LLP/NANOX_180525-v1_llp"
 
 xsecs = {
     #https://twiki.cern.ch/twiki/bin/viewauth/CMS/SummaryTable1G25ns#DY_Z
-    "DYJetsToLL_M-10to50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8":18610,
-    "DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8":1921.8*3,
+    #"DYJetsToLL_M-10to50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8":18610,
+    #"DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8":1921.8*3,
     
+    "DYJetsToLL_M-50_HT-100to200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:147.40",
+    "DYJetsToLL_M-50_HT-200to400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:40.99 ",
+    "DYJetsToLL_M-50_HT-400to600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:5.678",
+    "DYJetsToLL_M-50_HT-600to800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:1.367",
+    "DYJetsToLL_M-50_HT-800to1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:0.6304",
+    "DYJetsToLL_M-50_HT-1200to2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:0.1514",
+    "DYJetsToLL_M-50_HT-2500toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:0.003565 ",
+    
+    "QCD_HT100to200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:27990000",
+    "QCD_HT200to300_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:1712000",
+    "QCD_HT300to500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:347700",
+    "QCD_HT500to700_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:32100",
+    "QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:6831",
+    "QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:1207",
+    "QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:119.9",
+    "QCD_HT2000toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8:25.24",
+
+
+    '''
     #https://cms-pdmv.cern.ch/mcm/requests?page=-1&dataset_name=QCD_Pt_*to*_TuneCUETP8M1_13TeV_pythia8&member_of_campaign=RunIIFall14GS
     "QCD_Pt_30to50_TuneCUETP8M1_13TeV_pythia8":140932000,
     "QCD_Pt_50to80_TuneCUETP8M1_13TeV_pythia8":19204300,
@@ -241,12 +260,13 @@ xsecs = {
     "QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8":0.114943,
     "QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8":0.00682981,
     "QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8":0.000165445,
+    '''
     
     #ask rob
     "SMS-T1qqqq_ctau-0p001_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
     "SMS-T1qqqq_ctau-0p01_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
     "SMS-T1qqqq_ctau-0p1_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
-    "SMS-T1qqqq_ctau-1_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
+    "SMS-T1qqqq_ctau-1_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":0.324,
     "SMS-T1qqqq_ctau-10_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
     "SMS-T1qqqq_ctau-100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
     "SMS-T1qqqq_ctau-1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
@@ -262,11 +282,36 @@ xsecs = {
     
     #https://twiki.cern.ch/twiki/bin/view/LHCPhysics/TtbarNNLO (mtop=172.5 GeV)
     "TT_TuneCUETP8M2T4_13TeV-powheg-pythia8-evtgen": 831.76,
+    "TTJets_HT-1200to2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 0, 
+    "TTJets_HT-2500toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8: 0,
+    "TTJets_HT-600to800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8: 0,
+    "TTJets_HT-800to1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8: 0,
+    "TTJets_SingleLeptFromTbar_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8: 0,
+    "TTJets_SingleLeptFromT_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8: 0,
+
     
     #https://cms-pdmv.cern.ch/mcm/requests?page=0&dataset_name=WToLNu_*J_13TeV-amcatnloFXFX-pythia8
-    "WToLNu_0J_13TeV-amcatnloFXFX-pythia8": 49670.,
-    "WToLNu_1J_13TeV-amcatnloFXFX-pythia8": 8264.,
-    "WToLNu_2J_13TeV-amcatnloFXFX-pythia8": 3226.,
+    #https://twiki.cern.ch/twiki/bin/viewauth/CMS/SummaryTable1G25ns
+    "WJetsToLNu_HT-70To100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 0, 
+    "WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 1345,
+    "WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 359.7,
+    "WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 48.91,
+    "WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 12.05,,
+    "WJetsToLNu_HT-800To1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 5.501,
+    "WJetsToLNu_HT-1200To2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 1.329,
+    "WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 0.03216,
+    #"WToLNu_0J_13TeV-amcatnloFXFX-pythia8": 49670.,
+    #"WToLNu_1J_13TeV-amcatnloFXFX-pythia8": 8264.,
+    #"WToLNu_2J_13TeV-amcatnloFXFX-pythia8": 3226.,
+    
+    #https://twiki.cern.ch/twiki/bin/viewauth/CMS/SummaryTable1G25ns
+    "ZJetsToNuNu_HT-100To200_13TeV-madgraph": 280.35,
+    "ZJetsToNuNu_HT-200To400_13TeV-madgraph": 77.67,
+    "ZJetsToNuNu_HT-400To600_13TeV-madgraph": 10.73,
+    "ZJetsToNuNu_HT-600To800_13TeV-madgraph": 2.559,
+    "ZJetsToNuNu_HT-800To1200_13TeV-madgraph": 1.1796,
+    "ZJetsToNuNu_HT-1200To2500_13TeV-madgraph": 0.28833,
+    "ZJetsToNuNu_HT-2500ToInf_13TeV-madgraph": 0.006945,
     
     #https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat13TeV
     "WW_TuneCUETP8M1_13TeV-pythia8": 118.7,
