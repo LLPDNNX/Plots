@@ -290,7 +290,10 @@ xsecs = {
     # https://twiki.cern.ch/twiki/bin/view/LHCPhysics/TtbarNNLO (mtop=172.5 GeV)
     # missing
     #"TT_TuneCUETP8M2T4_13TeV-powheg-pythia8-evtgen": 831.76,
+    # NLO
     "TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8": 831.76,
+    # LO
+    "TTJets_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 831.76,
     "TTJets_HT-600to800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 2.666535,
     "TTJets_HT-800to1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 1.098082,
     "TTJets_HT-1200to2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 0.198748, 
