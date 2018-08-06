@@ -5,7 +5,7 @@ import os
 import ROOT
 import json
 
-txtFiles = sorted(os.listdir("test_180525-v1"))
+txtFiles = sorted(os.listdir("/vols/build/cms/vc1117/CMSSW_10_2_0_pre6/src/samples/testing"))
 
 processDict = {}
 pileupHists = {}
@@ -19,7 +19,7 @@ for txtFile in txtFiles:
     pileupHists[process] = ROOT.TH1F(process,"",101,0,100)
     pileupHists[process].SetDirectory(0)
     
-    f = open ("test_180525-v1/"+txtFile)
+    f = open ("/vols/build/cms/vc1117/CMSSW_10_2_0_pre6/src/samples/testing/"+txtFile)
     print "reading ",txtFile, "...",
     for l in f:
         if len(l)>0:

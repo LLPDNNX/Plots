@@ -243,15 +243,13 @@ xsecs = {
     "QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8":0.000165445,
     
     #ask rob
-    "SMS-T1qqqq_ctau-0p001_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
-    "SMS-T1qqqq_ctau-0p01_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
-    "SMS-T1qqqq_ctau-0p1_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
-    "SMS-T1qqqq_ctau-1_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":10,
-    "SMS-T1qqqq_ctau-10_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
-    "SMS-T1qqqq_ctau-100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
-    "SMS-T1qqqq_ctau-1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
-    "SMS-T1qqqq_ctau-10000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
-    "SMS-T1qqqq_ctau-100000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":1,
+    #https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections13TeVgluglu
+    # 1 TeV
+
+    "SMS-T1qqqq_ctau-1_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": {
+    1000: 0.324,
+    2000: 0.000981077
+    }
     
     #https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SingleTopRefXsec#Single_top_t_channel_cross_secti
     "ST_s-channel_4f_leptonDecays_13TeV-amcatnlo-pythia8_TuneCUETP8M1": 10.32,
@@ -349,36 +347,7 @@ mcSetDict = {
         "title":"Diboson",
         "addtitle":""
     },
-    "WJets": {
-        "processes": [
-            "WToLNu_0J_13TeV-amcatnloFXFX-pythia8",
-            "WToLNu_1J_13TeV-amcatnloFXFX-pythia8",
-            "WToLNu_2J_13TeV-amcatnloFXFX-pythia8"
-        ],
-        "weight":globalMCWeight,
-        "fill":newColor(0.33,0.75,0.35),
-        "title":"W+jets",
-        "addtitle":""
-    },
-    "ZJets": {
-        "processes": [
-            "DYJetsToLL_M-10to50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",
-            "DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8"
-        ],
-        "weight":globalMCWeight,
-        "fill":newColor(0.35,0.95,0.55),
-        "title":"Z/#gamma*+jets",
-        "addtitle":""
-    },
-    "ttbar": {
-        "processes": [
-            "TT_TuneCUETP8M2T4_13TeV-powheg-pythia8-evtgen",
-        ],
-        "weight":globalMCWeight,
-        "fill":newColor(1.,0.8,0.0),
-        "title":"t#bar{t}",
-        "addtitle":""
-    },
+
     "st":{
         "processes": [
             "ST_s-channel_4f_leptonDecays_13TeV-amcatnlo-pythia8_TuneCUETP8M1",
@@ -390,6 +359,39 @@ mcSetDict = {
         "weight":globalMCWeight,
         "fill":newColor(0.6,0.47,0.97),
         "title":"Single t/#bar{t}",
+        "addtitle":""
+    },
+
+    "ZJets": {
+        "processes": [
+            "DYJetsToLL_M-10to50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8",
+            "DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8"
+        ],
+        "weight":globalMCWeight,
+        "fill":newColor(0.9,0.95,0.55),
+        "title":"Z/#gamma*+jets",
+        "addtitle":""
+    },
+
+    "ttbar": {
+        "processes": [
+            "TT_TuneCUETP8M2T4_13TeV-powheg-pythia8-evtgen",
+        ],
+        "weight":globalMCWeight,
+        "fill":newColor(1.,0.8,0.0),
+        "title":"t#bar{t}",
+        "addtitle":""
+    },
+
+    "WJets": {
+        "processes": [
+            "WToLNu_0J_13TeV-amcatnloFXFX-pythia8",
+            "WToLNu_1J_13TeV-amcatnloFXFX-pythia8",
+            "WToLNu_2J_13TeV-amcatnloFXFX-pythia8"
+        ],
+        "weight":globalMCWeight,
+        "fill":newColor(0.33,0.75,0.35),
+        "title":"W+jets",
         "addtitle":""
     },
 
@@ -420,9 +422,12 @@ mcSetDict = {
         "processes": [
             "SMS-T1qqqq_ctau-1_TuneCUETP8M1_13TeV-madgraphMLM-pythia8"
         ],
-        "weight":globalMCWeight,
-        "fill":newColor(0.2, 0.4, 0.6),
-        "title":"gluino",
+        # 2 TeV
+        #"weight":globalMCWeight+"/10293.0*768916.0",
+        # 1 TeV
+        "weight":globalMCWeight+"/12840.0*768916.0",
+        "fill":newColor(0.5, 0, 0),
+        "title":"signal",
         "addtitle":""
     },
 }
@@ -470,7 +475,7 @@ def addOverUnderflow(hist):
 class Variable:
     def __init__(self,name,varexpr,title,start,end,
         unit="",
-        mcSetList=["WJets","ZJets","st","ttbar","QCD", "gluino"],
+        mcSetList=["ZJets","diboson", "st","ttbar","WJets","QCD", "gluino"],
         dataSetList=["SingleMuon"],
         nbins=50,
         logx=False,
@@ -518,26 +523,33 @@ class Variable:
 metSymbol = "E#kern[-0.53]{#lower[0.1]{#scale[1.2]{#/}}}#kern[-0.5]{#lower[0.3]{#scale[0.7]{T}}}"
  
 variables = [
-    Variable("nJets_all","nSelectedJets_all","#jets",-0.5,14.5,nbins=15),
-    Variable("nJets_central","nSelectedJets_central","#central jets",-0.5,12.5,nbins=13),
-    Variable("nLLPJets","nLLPJets","#llp jets",-0.5,8.5,nbins=9),
-    Variable("nbJets","nbJets","#b jets",-0.5,8.5,nbins=9),
+    Variable("nbJets","nbJets","#tight b jets",-0.5,8.5,nbins=9, logy=True),
+    Variable("nLLPJets","nLLPJets","#tight llp jets",-0.5,8.5,nbins=9,logy=True),
+    Variable("probLLP","probLLP","max(llp prob)",0.,1.,logy=True),
+    Variable("probB","probB","max(b prob)",0.,1.,logy=True),
+    #Variable("probC","probC","max(c prob)",0.,1.,logy=True),
+    #Variable("probLight","probLight","max(udsg prob)",0.,1.,logy=True),
+
+    #Variable("minPhi_central","minPhi_central","Central #Delta #phi_{min}",0, math.pi, logy=True),
+    #Variable("minPhi_all","minPhi_all","#Delta #phi_{min}",0, math.pi, logy=True),
     
-    Variable("alphaT_all","alphaT_all","#alpha#lower[0.3]{#scale[0.7]{T}}",0.1,10),
-    Variable("metovermht_all", "metoverhtall", "#frac{p_{T}^{miss}}{H_{T}^{miss}}", 0, 2),
-    Variable("ht_all","ht_central","central H#lower[0.3]{#scale[0.7]{T}}",200,1000,unit="GeV",logx=True),
-    Variable("mht_all","mht_all","H#lower[0.3]{#scale[0.7]{T}}#kern[-2.2]{ }#lower[-0.8]{#scale[0.7]{miss}}",200,1000,unit="GeV",logx=True),
-    Variable("MET_pt","MET_pt","p#lower[0.3]{#scale[0.7]{T}}#kern[-2.2]{ }#lower[-0.8]{#scale[0.7]{miss}}",150,1000,unit="GeV",logx=True),
+    #Variable("alphaT_all","alphaT_all","#alpha#lower[0.3]{#scale[0.7]{T}}",0.1,4, logy=True),
+    #Variable("mhtovermet_all", "mhtovermet_all", "H_{T}^{miss}/p_{T}^{miss}", 0.5, 1.5, logy=True),
+    #Variable("ht_all","ht_all","H#lower[0.3]{#scale[0.7]{T}}",200,1000,unit="GeV", logy=True),
+    #Variable("mht_all","mht_all","H#lower[0.3]{#scale[0.7]{T}}#kern[-2.2]{ }#lower[-0.8]{#scale[0.7]{miss}}",200,600,unit="GeV", logy=True),
+    #Variable("MET_pt","MET_pt","p#lower[0.3]{#scale[0.7]{T}}#kern[-2.2]{ }#lower[-0.8]{#scale[0.7]{miss}}",150,600,unit="GeV", logy=True)
     
-    Variable("jet1_pt_central","jet1_pt_central","Leading central jet p#lower[0.3]{#scale[0.7]{T}}",30,1000,unit="GeV",logx=True),
-    Variable("jet1_eta_central","jet1_eta_central","Leading central jet #eta",-2.5,2.5),
+    #Variable("jet1_pt_central","jet1_pt_central","Leading central jet p#lower[0.3]{#scale[0.7]{T}}",30,1000,unit="GeV",logx=True),
+    #Variable("jet1_eta_central","jet1_eta_central","Leading central jet #eta",-2.5,2.5),
     
-    Variable("jet1_pt_all","jet1_pt_all","Leading jet p#lower[0.3]{#scale[0.7]{T}}",30,1000,unit="GeV",logx=True),
-    Variable("jet1_eta_all","jet1_eta_all","Leading jet #eta",-5.,5.)
+    #Variable("jet1_pt_all","jet1_pt_all","Leading jet p#lower[0.3]{#scale[0.7]{T}}",30,1000,unit="GeV",logx=True),
+    #Variable("jet1_eta_all","jet1_eta_all","Leading jet #eta",-5.,5.)
 ]
 
 for category in [ 
-    ["0mu_3toNj_","","0#kern[-0.5]{ }#mu, #geq#kern[-0.5]{ }3#kern[-0.5]{ }jets"],
+    ["1000_800","((mLLP== 1000. && mLSP == 800.) || mLLP==-999.)","0#kern[-0.5]{ }#mu, #geq#kern[-0.5]{ }3#kern[-0.5]{ }jets", "c #tau = 1mm, m_{#tilde{g}} = 1000 GeV, m_{#tilde{\chi}} = 800 GeV"],
+    ["2000_200","((mLLP== 2000. && mLSP == 200.) || mLLP==-999.)","0#kern[-0.5]{ }#mu, #geq#kern[-0.5]{ }3#kern[-0.5]{ }jets", "c #tau = 1mm, m_{#tilde{g}} = 2000 GeV, m_{#tilde{\chi}} = 200 GeV"],
+    #["1000_800_1LLP","(((mLLP == 1000. && mLSP == 800.) || mLLP==-999.) && nLLPJets > 0 )","0#kern[-0.5]{ }#mu, #geq#kern[-0.5]{ }3#kern[-0.5]{ }jets, #geq#kern[-0.5]{ }1 tight LLP jet","c #tau = 1mm, m_{#tilde{g}} = 1000 GeV, m_{#tilde{\chi}} = 800 GeV"]
     #["1mu_3toNj_","(nTightMuons==1)*(nSelectedJets_all>2)","1#kern[-0.5]{ }#mu, #geq#kern[-0.5]{ }3#kern[-0.5]{ }jets"],
     #["2mu_3toNj","(nTightMuons==2)*(nSelectedJets_all>2)*(dimuon_mass>10.)","2#kern[-0.5]{ }#mu, #geq#kern[-0.5]{ }3#kern[-0.5]{ }jets"]
     
@@ -551,7 +563,9 @@ for category in [
     ]:
     for cut in [
         #["none","1",""],
-        ["sr","(MET_pt>150. && ht_all>200. && mht_all>200.)","p_{T}^{miss}>150 GeV, H_{T}>200 GeV, H_{T}^{miss}>200 GeV"],
+        ["","(ht_all>200. && mht_all>200.)"," H_{T}>200 GeV, H_{T}^{miss}>200 GeV"],
+        #["_alphaT","(ht_all>200. && mht_all>200. && alphaT_all > .5)","#alpha_{T} > 0.5, H_{T}>200 GeV, H_{T}^{miss}>200 GeV"],
+        #["deltaPhi","(minPhi_all > 0.2 && ht_all>200. && mht_all>200.)","#Delta #phi_{min} > 0.3, H_{T}>200 GeV, H_{T}^{miss}>200 GeV"],
         #["150met_puId","(met>150.)*(jet_minpuId_central>0)",metSymbol+"#kern[-0.7]{ }>#kern[-0.7]{ }150#kern[-0.5]{ }GeV, loose PU ID"],
         #["150met_puId","(met>150.)*(jet_minpuId_central>0)",metSymbol+"#kern[-0.7]{ }>#kern[-0.7]{ }150#kern[-0.5]{ }GeV, loose PU ID"],
         #["alphaT","(alphaT_all>0.5)","#alpha#lower[0.3]{#scale[0.7]{T}}>0.5"],
@@ -570,7 +584,7 @@ for category in [
             
             stackMC = ROOT.THStack()
             stackMCHists=[]
-            
+
             legendEntries=[]
             
             totalMC = 0.0
@@ -593,7 +607,7 @@ for category in [
                     #print process
                     #print " -> files=",len(processDict[process]["files"])
                     weight = variable.extraWeight+"*"+variable.cutMC+"*"+mcSetDict[processName]["weight"]+"*"+category[1]+"*"+cut[1]
-                    #print " -> weight=",weight
+                    print " -> weight=",weight
                     for f in processDict[process]["files"]:
                         rootFile = ROOT.TFile.Open(f)
                         tree = rootFile.Get("Friends")
@@ -607,13 +621,19 @@ for category in [
                 print " -> entries=",setHist.GetEntries(),"/",setHist.Integral()
                     
                 #addOverUnderflow(setHist)
-                stackMC.Add(setHist,"HIST")
-                sumHistMC.Add(setHist)
+
                 if len(mcSetDict[processName]["addtitle"])>0:
                     legendEntries.append(["",mcSetDict[processName]["addtitle"],""])
-                legendEntries.append([setHist,mcSetDict[processName]["title"],"F"])
-                
-            
+
+                if processName != "gluino":
+                    stackMC.Add(setHist,"HIST")
+                    sumHistMC.Add(setHist)
+                    legendEntries.append([setHist,mcSetDict[processName]["title"],"F"])
+                else:
+                    signal = setHist.Clone()
+                    signal.SetFillStyle(0)
+                    legendEntries.append([signal,mcSetDict[processName]["title"],"L"])
+
                 
             #sumHistData = ROOT.TH1F("datasum_"+category[0]+"_"+variable.name+"_"+str(random.randint(0,99999)),"",len(variable.binning)-1,variable.binning)
             #sumHistData.SetDirectory(0)
@@ -723,7 +743,8 @@ for category in [
             #axis.GetYaxis().SetNoExponent(True)
             axis.Draw("AXIS")
             
-            stackMC.Draw("HISTSame")
+            stackMC.Draw("SAME")
+            signal.Draw("HISTSame")
             #sumHistData.Draw("PESame")
             #legendEntries.append([sumHistData,"Data","P"])
             
@@ -762,12 +783,22 @@ for category in [
             pPreliminary.AddText("Preliminary")
             pPreliminary.Draw("Same")
         
+             
+            pGluino=ROOT.TPaveText(cvxmin+0.030,cvymax-0.07-0.05,cvxmin+0.030,cvymax-0.07-0.05,"NDC")
+            pGluino.SetFillStyle(0)
+            pGluino.SetBorderSize(0)
+            pGluino.SetTextFont(43)
+            pGluino.SetTextSize(26*cvscale)
+            pGluino.SetTextAlign(11)
+            pGluino.AddText(category[3])
+            pGluino.Draw("Same")
             
-            pCut=ROOT.TPaveText(cvxmin+0.025,cvymax-0.06-0.07,cvxmin+0.025,cvymax-0.06-0.07,"NDC")
+
+            pCut=ROOT.TPaveText(cvxmin+0.29,cvymax-0.065,cvxmin+0.29,cvymax-0.065,"NDC")
             pCut.SetFillStyle(0)
             pCut.SetBorderSize(0)
             pCut.SetTextFont(43)
-            pCut.SetTextSize(20*cvscale)
+            pCut.SetTextSize(26*cvscale)
             pCut.SetTextAlign(11)
             pCut.AddText(cut[2])
             pCut.Draw("Same")
@@ -781,11 +812,11 @@ for category in [
             pLumi.SetTextAlign(31)
             pLumi.AddText(category[2]+", 36#kern[-0.5]{ }fb#lower[-0.7]{#scale[0.7]{-1}} (13TeV)")
             pLumi.Draw("Same")
-            
-           
+
             cv.cd(1)
+            
             axisRes=ROOT.TH2F(
-                "axisRes"+str(random.randint(0,99999)),";"+variable.xaxisTitle+";Data/MC",
+                "axisRes"+str(random.randint(0,99999)),";"+variable.xaxisTitle+";MC Stat",
                 50,variable.binning[0],variable.binning[-1],50,0.1,1.9)
             axisRes.GetYaxis().SetNdivisions(406)
             axisRes.GetXaxis().SetTickLength(0.025/(1-cv.GetPad(1).GetLeftMargin()-cv.GetPad(1).GetRightMargin()))
@@ -795,8 +826,8 @@ for category in [
             
             rootObj=[]
             
-            '''
-            for ibin in range(sumHistData.GetNbinsX()):
+            #for ibin in range(sumHistData.GetNbinsX()):
+            for ibin in range(sumHistMC.GetNbinsX()):
                 c = sumHistMC.GetBinCenter(ibin+1)
                 w = sumHistMC.GetBinWidth(ibin+1)
                 m = sumHistMC.GetBinContent(ibin+1)
@@ -817,11 +848,13 @@ for category in [
                     box2.SetLineWidth(int(2*cvscale))
                     rootObj.append(box2)
                     box2.Draw("SameL")
+
             if len(rootObj)>0:
                 legend.AddEntry(rootObj[0],"MC stat.","F")
                 
                 
                 
+            '''
             sumHistRes=sumHistData.Clone(sumHistData.GetName()+str(random.randint(0,99999)))
             rootObj.append(sumHistRes)
             for ibin in range(sumHistRes.GetNbinsX()):
@@ -835,6 +868,7 @@ for category in [
                     sumHistRes.SetBinContent(ibin+1,0.0)
                     sumHistRes.SetBinError(ibin+1,0)
             sumHistRes.Draw("PESame")
+            '''
             
             axisLine = ROOT.TF1("axisLine"+str(random.randint(0,99999)),"1",variable.binning[0],variable.binning[-1])
             axisLine.SetLineColor(ROOT.kBlack)
@@ -847,18 +881,14 @@ for category in [
             hidePave=ROOT.TPaveText(cvxmin-0.06,resHeight-0.028,cvxmin-0.005,resHeight+0.028,"NDC")
             hidePave.SetFillColor(ROOT.kWhite)
             hidePave.SetFillStyle(1001)
-            #hidePave.Draw("Same")
-            ''' 
+            hidePave.Draw("Same")
             cv.cd(2)
             legend.Draw("Same")
             
             cv.Update()
            
             cv.Print(outputName+".pdf")
-            cv.Print(outputName+".png")     
-            cv.Print(outputName+".C")
+            #cv.Print(outputName+".png")     
+            #cv.Print(outputName+".C")
             
             cv.WaitPrimitive()
-        
-        
-                
