@@ -37,6 +37,22 @@ xsecs = {
     "QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":119.9,
     "QCD_HT2000toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8":25.24,
     
+    #https://cms-pdmv.cern.ch/mcm/requests?page=-1&dataset_name=QCD_Pt_*to*_TuneCUETP8M1_13TeV_pythia8&member_of_campaign=RunIIFall14GS
+    "QCD_Pt_30to50_TuneCUETP8M1_13TeV_pythia8":140932000,
+    "QCD_Pt_50to80_TuneCUETP8M1_13TeV_pythia8":19204300,
+    "QCD_Pt_80to120_TuneCUETP8M1_13TeV_pythia8":2762530,
+    "QCD_Pt_120to170_TuneCUETP8M1_13TeV_pythia8":471100,
+    "QCD_Pt_170to300_TuneCUETP8M1_13TeV_pythia8":117276,
+    "QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8":7823,
+    "QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8":648.2,
+    "QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8":186.9,
+    "QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8":32.293,
+    "QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8":9.4183,
+    "QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8":0.84265,
+    "QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8":0.114943,
+    "QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8":0.00682981,
+    "QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8":0.000165445,
+    
     # Single-top
     # https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SingleTopRefXsec#Single_top_t_channel_cross_secti
     # NLO
@@ -49,7 +65,7 @@ xsecs = {
     # TTbar
     # https://twiki.cern.ch/twiki/bin/view/LHCPhysics/TtbarNNLO (mtop=172.5 GeV)
     # missing
-    #"TT_TuneCUETP8M2T4_13TeV-powheg-pythia8-evtgen": 831.76,
+    "TT_TuneCUETP8M2T4_13TeV-powheg-pythia8-evtgen": 831.76,
     # NLO
     "TTJets_TuneCUETP8M2T4_13TeV-amcatnloFXFX-pythia8": 831.76,
     # LO
@@ -64,7 +80,7 @@ xsecs = {
     # W->l nu + jets
     # https://twiki.cern.ch/twiki/bin/viewauth/CMS/SummaryTable1G25ns
     # NLO
-    "WJetsToLNu_HT-70To100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 0*1.21, 
+    "WJetsToLNu_HT-70To100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 1319*1.21, 
     "WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 1345*1.21,
     "WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 359.7*1.21,
     "WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8": 48.91*1.21,
